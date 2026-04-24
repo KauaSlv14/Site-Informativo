@@ -1,0 +1,38 @@
+[
+  {
+    "titulo": "AWS Community Day Fortaleza",
+    "data": "Marco 2026",
+    "local": "Fortaleza - CE",
+    "descricao": "Participacao em trilhas sobre arquiteturas em nuvem, boas praticas de seguranca e networking com profissionais e estudantes da comunidade AWS.",
+    "imagem": "/eventos/aws-community-day.jpg",
+    "link": "https://example.com/aws-community-day",
+    "categoria": "cloud"
+  },
+  {
+    "titulo": "DevOps Days Fortaleza",
+    "data": "Janeiro 2026",
+    "local": "Fortaleza - CE",
+    "descricao": "Evento focado em cultura DevOps, automacao de pipelines e observabilidade, com talks tecnicas e trocas valiosas com a comunidade.",
+    "imagem": "/eventos/devops-days-fortaleza.jpg",
+    "link": "https://example.com/devops-days",
+    "categoria": "tecnologia"
+  },
+  {
+    "titulo": "Hackathon Unifanor - Solucoes Reais",
+    "data": "Outubro 2025",
+    "local": "Campus Dunas",
+    "descricao": "Competicao colaborativa para desenvolver prototipos com foco em problemas reais, envolvendo integracoes, API e prototipacao rapida.",
+    "imagem": "/eventos/hackathon-unifanor.jpg",
+    "link": "",
+    "categoria": "comunidade"
+  },
+  {
+    "titulo": "Meetup Backend e IA Aplicada",
+    "data": "Agosto 2025",
+    "local": "Fortaleza - CE",
+    "descricao": "Meetup com discussao sobre arquitetura backend, uso pratico de IA em produtos digitais e compartilhamento de experiencias entre devs.",
+    "imagem": "/eventos/meetup-backend.jpg",
+    "link": "https://example.com/meetup-backend",
+    "categoria": "tecnologia"
+  }
+]

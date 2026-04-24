@@ -1,0 +1,38 @@
+[
+  {
+    "titulo": "Dashboard de Indicadores em Oracle APEX",
+    "descricao": "Aplicacao para monitorar indicadores operacionais com filtros dinamicos, graficos e atualizacao em tempo real para suporte a tomada de decisao.",
+    "imagem": "/projetos/dashboard-apex.jpg",
+    "tecnologias": ["Oracle APEX", "PL/SQL", "JavaScript", "CSS"],
+    "linkProjeto": "https://example.com/dashboard-apex",
+    "linkGithub": "https://github.com/kauaalmeida/dashboard-apex",
+    "destaque": true
+  },
+  {
+    "titulo": "Orquestrador de Automacoes com n8n",
+    "descricao": "Fluxos automatizados para notificacoes, tratamento de leads e integracao entre APIs, reduzindo tarefas manuais e aumentando produtividade.",
+    "imagem": "/projetos/orquestrador-n8n.jpg",
+    "tecnologias": ["n8n", "Python", "Webhooks", "APIs REST"],
+    "linkProjeto": "https://example.com/orquestrador-n8n",
+    "linkGithub": "https://github.com/kauaalmeida/orquestrador-n8n",
+    "destaque": true
+  },
+  {
+    "titulo": "Painel Cloud de Custos e Servicos",
+    "descricao": "Interface web para visualizar consumo de recursos cloud, acompanhar alertas de custo e consolidar dados de diferentes fontes em um unico painel.",
+    "imagem": "/projetos/painel-cloud.jpg",
+    "tecnologias": ["AWS", "Python", "PostgreSQL", "Docker"],
+    "linkProjeto": "https://example.com/painel-cloud",
+    "linkGithub": "",
+    "destaque": false
+  },
+  {
+    "titulo": "Bot de Suporte para Atendimento Tecnico",
+    "descricao": "Bot de suporte com respostas contextualizadas, triagem automatica e abertura de chamados para acelerar o atendimento ao usuario final.",
+    "imagem": "/projetos/bot-suporte.jpg",
+    "tecnologias": ["Python", "JavaScript", "HTML", "Bootstrap"],
+    "linkProjeto": "https://example.com/bot-suporte",
+    "linkGithub": "https://github.com/kauaalmeida/bot-suporte",
+    "destaque": false
+  }
+]
