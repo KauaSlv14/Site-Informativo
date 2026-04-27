@@ -6,15 +6,13 @@ import {
   Bot,
   Boxes,
   Braces,
-  BriefcaseBusiness,
   Cloud,
   Code2,
   Database,
   ExternalLink,
   FileCode2,
-  GitBranch,
   Globe,
-  Image,
+  GitBranch,
   Server,
 } from 'lucide-react'
 import projetos from './data/projetos.json'
@@ -24,17 +22,17 @@ const SOCIAL_LINKS = [
   {
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/in/kau%C3%A3-almeida-silva/',
-    icon: BriefcaseBusiness,
+    iconPath: '/social/linkedin.svg',
   },
   {
     label: 'GitHub',
     href: 'https://github.com/KauaSlv14',
-    icon: GitBranch,
+    iconPath: '/social/github.svg',
   },
   {
     label: 'Instagram',
     href: 'https://instagram.com',
-    icon: Image,
+    iconPath: '/social/instagram.svg',
   },
   {
     label: 'Contato',
@@ -153,7 +151,15 @@ function App() {
                       }
                       className="group inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-slate-100 transition duration-300 hover:border-cyan-300/70 hover:bg-cyan-400/15"
                     >
-                      <Icon size={16} className="text-cyan-300" />
+                      {item.iconPath ? (
+                        <img
+                          src={item.iconPath}
+                          alt={`Icone ${item.label}`}
+                          className="h-4 w-4 object-contain"
+                        />
+                      ) : (
+                        <Icon size={16} className="text-cyan-300" />
+                      )}
                       <span>{item.label}</span>
                     </a>
                   )
