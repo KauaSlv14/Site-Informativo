@@ -98,13 +98,20 @@ function AppShell({ children }) {
   )
 }
 
-function SectionHeader({ title, description }) {
+function SectionHeader({ eyebrow, title, description }) {
   return (
     <div className="mb-8">
+      {eyebrow && (
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300/80">
+          {eyebrow}
+        </p>
+      )}
       <h2 className="font-display text-3xl font-semibold text-white md:text-4xl">
         {title}
       </h2>
-      <p className="mt-3 max-w-3xl text-slate-300 md:text-lg">{description}</p>
+      <p className="mt-3 max-w-3xl leading-relaxed text-slate-300 md:text-lg">
+        {description}
+      </p>
     </div>
   )
 }
@@ -113,7 +120,7 @@ function BackToHome() {
   return (
     <Link
       to="/"
-      className="mb-6 inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-sm font-medium text-slate-100 transition hover:border-cyan-300/60"
+      className="mb-7 inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-sm font-medium text-slate-100 transition-all duration-300 hover:scale-105 hover:border-cyan-300/60 hover:bg-cyan-400/10"
     >
       <ArrowLeft size={16} />
       Voltar para inicio
@@ -283,11 +290,24 @@ function SobrePage() {
     >
       <BackToHome />
       <SectionHeader
+        eyebrow="Sobre"
         title="Sobre"
         description="Minha trajetoria e o tipo de solucao que busco construir."
       />
 
-      <div className="space-y-5 text-slate-300 md:text-lg">
+      <div className="mb-6 flex flex-wrap gap-2">
+        <span className="rounded-full border border-cyan-300/35 bg-cyan-300/10 px-3 py-1 text-xs font-medium text-cyan-100">
+          Fortaleza - CE
+        </span>
+        <span className="rounded-full border border-cyan-300/35 bg-cyan-300/10 px-3 py-1 text-xs font-medium text-cyan-100">
+          AWS Builder Student Leader
+        </span>
+        <span className="rounded-full border border-cyan-300/35 bg-cyan-300/10 px-3 py-1 text-xs font-medium text-cyan-100">
+          Automacoes e Backend
+        </span>
+      </div>
+
+      <div className="max-w-4xl space-y-5 text-slate-300 md:text-lg">
         <p>
           Sou Kaua Almeida, desenvolvedor apaixonado por tecnologia, automacoes e
           inovacao. Sou de Fortaleza - CE e me formei em 2025 no ensino medio
@@ -323,8 +343,9 @@ function TecnologiasPage() {
     >
       <BackToHome />
       <SectionHeader
+        eyebrow="Stack"
         title="Tecnologias"
-        description="Stack que uso no dia a dia para desenvolver e automatizar solues."
+        description="Stack que uso no dia a dia para desenvolver e automatizar solucoes."
       />
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -337,10 +358,11 @@ function TecnologiasPage() {
               initial="hidden"
               animate="show"
               variants={cardReveal}
-              className="rounded-xl border border-white/10 bg-white/5 p-3"
+              whileHover={{ y: -3 }}
+              className="rounded-xl border border-white/10 bg-white/5 p-3 transition-all duration-300 hover:border-cyan-300/50 hover:bg-cyan-400/10 hover:shadow-[0_12px_30px_rgba(15,23,42,0.35)]"
             >
               <div className="inline-flex items-center gap-2">
-                <span className="inline-flex rounded-lg bg-cyan-400/10 p-2 text-cyan-300">
+                <span className="inline-flex rounded-lg border border-cyan-300/20 bg-cyan-400/10 p-2 text-cyan-300">
                   <Icon size={16} />
                 </span>
                 <p className="text-sm font-medium text-slate-100">{tech.name}</p>
@@ -363,6 +385,7 @@ function ProjetosPage() {
     >
       <BackToHome />
       <SectionHeader
+        eyebrow="Cases"
         title="Projetos"
         description="Projetos com foco em resultado, automacao e produto funcional."
       />
@@ -375,17 +398,18 @@ function ProjetosPage() {
             initial="hidden"
             animate="show"
             variants={cardReveal}
-            className={`overflow-hidden rounded-2xl border p-4 transition duration-300 ${
+            whileHover={{ y: -3 }}
+            className={`overflow-hidden rounded-2xl border p-4 transition-all duration-300 ${
               projeto.destaque
                 ? 'border-cyan-300/50 bg-cyan-400/10'
-                : 'border-white/10 bg-white/5'
+                : 'border-white/10 bg-white/5 hover:border-cyan-300/40 hover:bg-cyan-400/5'
             }`}
           >
             <div className="mb-4 aspect-video overflow-hidden rounded-xl">
               <img
                 src={projeto.imagem}
                 alt={projeto.titulo}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
               />
             </div>
 
@@ -410,7 +434,7 @@ function ProjetosPage() {
                 href={projeto.linkProjeto}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-3 py-2 text-sm font-medium text-white transition hover:bg-white/20"
+                className="inline-flex items-center gap-2 rounded-lg border border-cyan-200/45 bg-gradient-to-r from-cyan-400 to-sky-400 px-3 py-2 text-sm font-semibold text-slate-950 transition-all duration-300 hover:scale-105 hover:from-cyan-300 hover:to-sky-300"
               >
                 <Globe size={15} />
                 Ver projeto
@@ -420,7 +444,7 @@ function ProjetosPage() {
                   href={projeto.linkGithub}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-3 py-2 text-sm font-medium text-slate-100 transition hover:border-cyan-300/60"
+                  className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-sm font-medium text-slate-100 transition-all duration-300 hover:scale-105 hover:border-cyan-300/60 hover:bg-cyan-400/10"
                 >
                   <GitBranch size={15} />
                   GitHub
@@ -444,6 +468,7 @@ function EventosPage() {
     >
       <BackToHome />
       <SectionHeader
+        eyebrow="Comunidade"
         title="Eventos"
         description="Participacao ativa em comunidade e ecossistema de tecnologia."
       />
@@ -456,14 +481,15 @@ function EventosPage() {
             initial="hidden"
             animate="show"
             variants={cardReveal}
-            className="rounded-2xl border border-white/10 bg-white/5 p-4"
+            whileHover={{ y: -2 }}
+            className="rounded-2xl border border-white/10 bg-white/5 p-4 transition-all duration-300 hover:border-cyan-300/35 hover:bg-cyan-400/5"
           >
             <div className="flex flex-col gap-4 md:flex-row">
               <div className="w-full overflow-hidden rounded-xl md:w-64">
                 <img
                   src={evento.imagem}
                   alt={evento.titulo}
-                  className="h-40 w-full object-cover"
+                  className="h-40 w-full object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>
 
@@ -490,7 +516,7 @@ function EventosPage() {
                     href={evento.link}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="mt-3 inline-flex items-center gap-2 rounded-lg border border-white/20 px-3 py-2 text-sm font-medium text-white transition hover:border-cyan-300/60"
+                    className="mt-3 inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-sm font-medium text-white transition-all duration-300 hover:scale-105 hover:border-cyan-300/60 hover:bg-cyan-400/10"
                   >
                     Link externo
                     <ExternalLink size={15} />
