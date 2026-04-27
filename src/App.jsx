@@ -14,6 +14,9 @@ import {
   FileCode2,
   GitBranch,
   Globe,
+  Lightbulb,
+  MapPin,
+  Rocket,
   Server,
 } from 'lucide-react'
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
@@ -122,22 +125,18 @@ function HomePage() {
   const sections = [
     {
       title: 'Sobre',
-      description: 'Minha trajetoria, foco e area de atuacao.',
       to: '/sobre',
     },
     {
       title: 'Tecnologias',
-      description: 'Stack principal para construir produtos.',
       to: '/tecnologias',
     },
     {
       title: 'Projetos',
-      description: 'Cases com links de projeto e codigo.',
       to: '/projetos',
     },
     {
       title: 'Eventos',
-      description: 'Participacoes em comunidade e ecossistema tech.',
       to: '/eventos',
     },
   ]
@@ -147,40 +146,58 @@ function HomePage() {
       initial="hidden"
       animate="show"
       variants={sectionReveal}
-      className="glass-card rounded-3xl border border-white/10 p-6 md:p-10"
+      className="glass-card rounded-3xl border border-white/10 p-6 md:p-12"
     >
-      <div className="grid items-start gap-8 md:grid-cols-[auto,1fr]">
-        <img
+      <div className="flex flex-col gap-8 md:flex-row md:items-start md:gap-10">
+        <motion.img
+          initial={{ opacity: 0, y: 10, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.45 }}
+          whileHover={{ scale: 1.03 }}
           src="/avatar/avatar.jpg"
           alt="Avatar de Kaua Almeida"
-          className="mx-auto h-36 w-36 rounded-2xl border border-cyan-300/30 object-cover md:h-44 md:w-44"
+          className="mx-auto h-36 w-36 shrink-0 rounded-2xl border border-cyan-300/40 object-cover shadow-[0_20px_50px_rgba(10,18,38,0.65)] ring-1 ring-cyan-300/25 transition-all duration-300 hover:shadow-[0_18px_45px_rgba(34,211,238,0.2)] md:mx-0 md:h-44 md:w-44"
         />
 
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300/80">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.08 }}
+          className="w-full"
+        >
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300/80">
             Portfolio
           </p>
-          <h1 className="mt-2 font-display text-4xl font-semibold text-white md:text-5xl">
+          <h1 className="mt-2 font-display text-5xl font-bold leading-[1.02] text-white md:text-6xl">
             Kaua Almeida
           </h1>
-          <p className="mt-3 text-sm uppercase tracking-[0.16em] text-cyan-200/90 md:text-base">
+          <p className="mt-4 text-xs font-medium uppercase tracking-[0.18em] text-cyan-200/85 md:text-sm">
             Desenvolvedor | Oracle APEX | Python | n8n | AWS Builder
           </p>
-          <p className="mt-5 max-w-2xl text-slate-300 md:text-lg">
-            Escolha a area que deseja ver. Cada secao abre em uma tela dedicada,
-            com conteudo completo e organizado.
+          <p className="mt-6 max-w-[52ch] text-base leading-relaxed text-slate-300 md:text-xl">
+            Transformando ideias em solucoes reais atraves da tecnologia.
           </p>
 
-          <div className="mt-6 flex flex-wrap gap-2">
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.16 }}
+            className="mt-8 flex flex-wrap gap-2.5"
+          >
             {SOCIAL_LINKS.map((item) => {
               const Icon = item.icon
+              const isPrimary = item.label === 'LinkedIn'
               return (
                 <a
                   key={item.label}
                   href={item.href}
                   target={item.href.startsWith('http') ? '_blank' : undefined}
                   rel={item.href.startsWith('http') ? 'noreferrer noopener' : undefined}
-                  className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-xs font-medium text-slate-100 transition hover:border-cyan-300/70 hover:bg-cyan-400/15"
+                  className={`inline-flex items-center gap-2 rounded-lg px-3.5 py-2 text-xs font-semibold transition-all duration-300 hover:scale-105 ${
+                    isPrimary
+                      ? 'border border-cyan-200/40 bg-gradient-to-r from-cyan-400 to-sky-400 text-slate-950 shadow-[0_8px_24px_rgba(34,211,238,0.35)] hover:from-cyan-300 hover:to-sky-300'
+                      : 'border border-white/20 bg-white/5 text-slate-100 hover:border-cyan-300/70 hover:bg-cyan-400/15 hover:shadow-[0_8px_22px_rgba(34,211,238,0.22)]'
+                  }`}
                 >
                   {item.iconPath ? (
                     <img
@@ -189,42 +206,69 @@ function HomePage() {
                       className="h-4 w-4 object-contain"
                     />
                   ) : (
-                    <Icon size={14} className="text-cyan-300" />
+                    <Icon
+                      size={14}
+                      className={isPrimary ? 'text-slate-900' : 'text-cyan-300'}
+                    />
                   )}
                   {item.label}
                 </a>
               )
             })}
-          </div>
-        </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.24 }}
+            className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-slate-300 md:text-sm"
+          >
+            <span className="inline-flex items-center gap-1.5">
+              <Rocket size={14} className="text-cyan-300" />
+              AWS Builder Student Leader
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Lightbulb size={14} className="text-cyan-300" />
+              Foco em Automacoes e Backend
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <MapPin size={14} className="text-cyan-300" />
+              Fortaleza - CE
+            </span>
+          </motion.div>
+        </motion.div>
       </div>
 
-      <div className="mt-8 grid gap-3 md:grid-cols-2">
-        {sections.map((section, idx) => (
-          <motion.article
-            key={section.title}
-            custom={idx}
-            initial="hidden"
-            animate="show"
-            variants={cardReveal}
-            className="rounded-2xl border border-white/10 bg-white/5 p-4"
-          >
-            <Link
-              to={section.to}
-              className="group flex items-start justify-between gap-3"
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45, delay: 0.3 }}
+        className="mt-9 border-t border-white/10 pt-5"
+      >
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-2 md:flex-nowrap md:gap-x-6">
+          {sections.map((section, idx) => (
+            <motion.div
+              key={section.title}
+              custom={idx}
+              initial="hidden"
+              animate="show"
+              variants={cardReveal}
             >
-              <div>
-                <p className="font-medium text-white">{section.title}</p>
-                <p className="mt-1 text-sm text-slate-300">{section.description}</p>
-              </div>
-              <ArrowUpRight
-                size={16}
-                className="text-cyan-300 transition group-hover:translate-x-[2px] group-hover:translate-y-[-2px]"
-              />
-            </Link>
-          </motion.article>
-        ))}
-      </div>
+              <Link
+                to={section.to}
+                className="group relative inline-flex items-center gap-1.5 py-1 text-base font-semibold text-slate-300 transition-colors duration-300 hover:text-white md:text-lg"
+              >
+                <span>{section.title}</span>
+                <ArrowUpRight
+                  size={14}
+                  className="shrink-0 text-cyan-300 transition group-hover:translate-x-[2px] group-hover:translate-y-[-2px]"
+                />
+                <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-cyan-300 transition-all duration-300 group-hover:w-full" />
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
     </motion.section>
   )
 }
