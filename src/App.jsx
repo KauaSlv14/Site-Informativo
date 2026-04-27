@@ -15,7 +15,6 @@ import {
   GitBranch,
   Globe,
   Image,
-  Mail,
   Server,
 } from 'lucide-react'
 import projetos from './data/projetos.json'
@@ -24,12 +23,12 @@ import eventos from './data/eventos.json'
 const SOCIAL_LINKS = [
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com',
+    href: 'https://www.linkedin.com/in/kau%C3%A3-almeida-silva/',
     icon: BriefcaseBusiness,
   },
   {
     label: 'GitHub',
-    href: 'https://github.com',
+    href: 'https://github.com/KauaSlv14',
     icon: GitBranch,
   },
   {
